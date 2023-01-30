@@ -23,39 +23,39 @@ MongoClient.connect(connectionURL, {useNewUrlparser:true}, (error,client)=>{
 
     // })
 
-//     db.collection('tasks').insertMany([
-//         {
-//             description:'Work',
-//             completed: false 
-//         },
-//         {
-//             description:'cooking',
-//             completed: false 
-//         },
-//         {
-//             description:'sleeping',
-//             completed: false 
+    db.collection('tasks').insertMany([
+        {
+            description:'Work',
+            completed: false 
+        },
+        {
+            description:'cooking',
+            completed: false 
+        },
+        {
+            description:'sleeping',
+            completed: false 
+        }
+    ],(error,result)=>{
+        if(error){
+            console.log('unable to insert tasks!')
+        }
+        console.log(result)
+    })
+})
+
+// db.collection('tasks').updateMany(
+//     {completed:false},
+//     {
+//         $set:{
+//             completed:true
 //         }
-//     ],(error,result)=>{
-//         if(error){
-//             console.log('unable to insert tasks!')
-//         }
-//         console.log(result)
-//     })
+    
+// }).then((result)=>{
+//     console.log(result)
+// }).catch((error)=>{
+//     console.log(error)
 // })
 
-db.collection('tasks').updateMany(
-    {completed:false},
-    {
-        $set:{
-            completed:true
-        }
-    
-}).then((result)=>{
-    console.log(result)
-}).catch((error)=>{
-    console.log(error)
-})
 
 
-})
